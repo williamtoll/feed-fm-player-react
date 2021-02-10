@@ -38,6 +38,8 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Player data-testid="player-component" />
+
       <Grid container className={classes.root} spacing={2}>
         <Grid item sm={6} xs={12} lg={3}>
 
@@ -52,7 +54,6 @@ function App() {
 
         </Grid>
       </Grid>
-      <Player data-testid="player-component" />
 
       <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
         <BottomNavigationAction label="Home" value="home" icon={<HomeIcon />} />
