@@ -39,22 +39,21 @@ function App() {
     <div className="App">
       <Header />
       <Grid container className={classes.root} spacing={2}>
-        <Grid sm={6} xs={12} lg={3}>
+        <Grid item sm={6} xs={12} lg={3}>
 
         </Grid>
-        <Grid sm={6} xs={12} lg={6} className="webGlobal">
+        <Grid item sm={6} xs={12} lg={6} className="webGlobal">
           <Stations  />
         </Grid>
-        <Grid sm={6} xs={12} lg={6} className="mobileGlobal">
+        <Grid item sm={6} xs={12} lg={6} className="mobileGlobal">
           <StationsPhone  />
         </Grid>
-        <Grid sm={6} xs={12} lg={3}>
+        <Grid item sm={6} xs={12} lg={3}>
 
         </Grid>
       </Grid>
-      {/* <h4>Feed FM Player</h4> */}
+      <h4>Feed FM Player</h4>
       <Player />
-      <PlayerCard />
       <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
         <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
         <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />

@@ -37,9 +37,12 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function PlayerCard() {
+export default function PlayerCard(props:any) {
   const classes = useStyles();
   const theme = useTheme();
+
+//   console.log("Player Card Props")
+//   console.log(props);
 
   return (
       
@@ -47,10 +50,10 @@ export default function PlayerCard() {
       <div className={classes.details}>
         <CardContent className={classes.content}>
           <Typography component="h5" variant="h5">
-            Live From Space
+            {props?.station}
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
-            Mac Miller
+            {props?.audioFile}
           </Typography>
         </CardContent>
         {/* <div className={classes.controls}>
@@ -67,8 +70,8 @@ export default function PlayerCard() {
       </div>
       <CardMedia
         className={classes.cover}
-        image="/static/images/cards/live-from-space.jpg"
-        title="Live from space album cover"
+        image={props?.cover}
+        title=""
       />
     </Card>
   );
