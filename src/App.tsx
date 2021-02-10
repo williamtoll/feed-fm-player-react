@@ -57,10 +57,10 @@ function App() {
       <Player />
 
       <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-        <BottomNavigationAction label="Home" value="recents" icon={<HomeIcon />} />
+        <BottomNavigationAction label="Home" value="home" icon={<HomeIcon />} />
         <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Browse" value="folder" icon={<FolderIcon />} />
-        <BottomNavigationAction label="New" value="nearby" icon={<AddBoxIcon />} />
+        <BottomNavigationAction label="Browse" value="browse" icon={<FolderIcon />} />
+        <BottomNavigationAction label="Playlist" value="playlist" icon={<AddBoxIcon />} />
 
       </BottomNavigation>
     </div>
