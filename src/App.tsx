@@ -15,6 +15,7 @@ import Stations from './Stations';
 import StationsPhone from './StationsPhone';
 import PlayerCard from './PlayerCard';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -54,6 +55,7 @@ function App() {
       </Grid>
       <h4>Feed FM Player</h4>
       <Player />
+
       <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
         <BottomNavigationAction label="Home" value="recents" icon={<HomeIcon />} />
         <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
