@@ -1,42 +1,42 @@
 const stationData = [
     {
-      img: '"https://i.ibb.co/qmbBMMX/classic.jpg',
+      img: '/images/classic.jpg',
       title: 'Classic',
       cols: 2,
       featured: true,
     },
     {
-      img: '/static/images/grid-list/burgers.jpg',
+      img: '/images/rock80.jpg',
       title: 'Rock 80\'s',
     },
     {
-      img: '/static/images/grid-list/camera.jpg',
+      img: '/images/popmusic.jpg',
       title: 'Pop',
     },
     {
-      img: '/static/images/grid-list/morning.jpg',
+      img: '/images/rockandroll.jpg',
       title: 'Rock & Roll',
       featured: true,
     },
     {
-      img: '/static/images/grid-list/hats.jpg',
+      img: '/images/newmusic.png',
       title: 'News',
     },
     {
-      img: '/static/images/grid-list/honey.jpg',
+      img: '/images/hiphop.jpg',
       title: 'Hip Hop',
     },
     {
-      img: '/static/images/grid-list/vegetables.jpg',
+      img: '/images/dance.jpg',
       title: 'Dance',
       cols: 2,
     },
     {
-      img: '/static/images/grid-list/plant.jpg',
+      img: '/images/music90.jpg',
       title: 'Best of 90\'s',
     },
     {
-      img: '/static/images/grid-list/mushroom.jpg',
+      img: '/images/hits.jpeg',
       title: 'Hits',
     }
   ];
