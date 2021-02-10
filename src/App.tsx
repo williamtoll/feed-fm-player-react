@@ -13,7 +13,6 @@ import AddBoxIcon from '@material-ui/icons/AddBox';
 import Header from './Header';
 import Stations from './Stations';
 import StationsPhone from './StationsPhone';
-import PlayerCard from './PlayerCard';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -53,8 +52,7 @@ function App() {
 
         </Grid>
       </Grid>
-      <h4>Feed FM Player</h4>
-      <Player />
+      <Player data-testid="player-component" />
 
       <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
         <BottomNavigationAction label="Home" value="home" icon={<HomeIcon />} />

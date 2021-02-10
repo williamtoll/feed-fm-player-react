@@ -14,9 +14,9 @@ You will also see any lint errors in the console.
 ### Test
 To run the units tests you have to execute the command 'npm test' and watch the results in the command line
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
+### Build the application for production environment
+Execute the command 'npm run build' 
+The app for production will be in the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\

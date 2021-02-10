@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Box } from "@material-ui/core";
 //@ts-ignore
 import Feed from "feed-media-audio-player";
-import PlayerCard from "./PlayerCard";
 import { IconButton } from "@material-ui/core";
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import { Theme, createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
@@ -12,6 +10,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { Grid } from "@material-ui/core";
 import SkipNextIcon from '@material-ui/icons/SkipNext';
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -36,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
         stationInfo: {
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'flex-end',
+            justifyContent: 'center',
             paddingLeft: theme.spacing(1),
             paddingBottom: theme.spacing(1),
         },
@@ -51,83 +50,53 @@ const useStyles = makeStyles((theme: Theme) =>
             height: 38,
             width: 38,
         },
+        IconSize24x24: {
+            height: 24,
+            width: 24,
+        },
     }),
 );
 
 function Player() {
-    const [station, setStation] = useState();
-    const [audio, setAudio] = useState();
-    const [cover, setCover] = useState();
     const classes = useStyles();
-
+    const [playing,isPlaying]=useState(false);
 
     var player = new Feed.Player("demo", "demo");
-
-    let audioFile = {};
-    useEffect(() => {
-        var playerView = new Feed.PlayerView("player-view-div", player);
-
-        // simple callback
-        player.on("play-completed", function () {
-            console.log("a play completed!");
-        });
-
-        // third argument sets 'this' for callback function
-        player.on("play-started", function () {
-            console.log("play started");
-        });
-
-        player.tune();
+    player.on('play-started', function(){
+        console.log("play started")
+        isPlaying(true)
     });
 
-    // Display all the events the player triggers
-    player.on("all", function (event: any) {
-        console.log(
-            "player triggered event '" + event + "' with arguments:"
-            // Array.prototype.splice.call(arguments, 1,1)
-        );
-
-        console.log("play all");
-        let res = Array.prototype.splice.call(arguments, 1, 1);
-        // console.log(res[0]);
-        // console.log(res[0].audio_file.track.title);
-        // console.log(res[0].audio_file.artist.name);
-        // console.log(res[0].station.name);
-        // console.log(res[0].extra.background_image_url);
-
-        // if (res.length > 0) setStation(res[0].station.name);
-        //     setAudio(res[0].audio_file.track.title);
-        //     setCover(res[0].extra.background_image_url);
+    useEffect(() => {
+        var playerView = new Feed.PlayerView("player-view-div", player);
+        player.tune();
     });
 
     return (
         <Box component="span" m={1}>
-            {station}
-            {audio}
+            <h4>Feed FM Player</h4>
+            {playing===true?'Playing':""}
             <div id="player-view-div">
                 <Grid container className={classes.root} spacing={1}>
-                    <Grid item sm={6} xs={6} lg={6} className={classes.stationInfo}>
+                    <Grid item sm={12} xs={12} lg={12} className={classes.stationInfo}>
                         <div className="status"></div>
-                    </Grid>
-                    <Grid item sm={6} xs={6} lg={6} className={classes.favoriteIcon}>
-                        <IconButton aria-label="" className="favorite">
-                            <FavoriteBorderIcon className={classes.IconSize} />
-                        </IconButton>
                     </Grid>
                 </Grid>
                 <IconButton aria-label="play/pause" className="play-button">
                     <PlayCircleOutlineIcon className={classes.IconSize} />
                 </IconButton>
-                <IconButton aria-label="play/pause" className="pause-button">
+                <IconButton aria-label="pause" className="pause-button">
                     <PauseCircleOutlineIcon className={classes.IconSize} />
                 </IconButton>
 
-                <IconButton aria-label="play/pause" className="skip-button">
+                <IconButton aria-label="skip" className="skip-button">
                     <SkipNextIcon className={classes.IconSize} />
+                </IconButton>
+                <IconButton aria-label="" className="favorite">
+                    <FavoriteBorderIcon className={classes.IconSize24x24} />
                 </IconButton>
             </div>
 
-            <PlayerCard station={station} audioFile={audio} cover={cover} />
         </Box>
     );
 }

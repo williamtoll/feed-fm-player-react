@@ -36,7 +36,7 @@ export default function StationsPhone() {
     <div className={classes.root } >
       <GridList cellHeight={180} className={classes.gridList} cols={1}>
         <GridListTile key="Subheader" cols={4} style={{ height: 'auto' }}>
-          <ListSubheader component="div">December</ListSubheader>
+          <ListSubheader component="div">Recommended</ListSubheader>
         </GridListTile>
         {StationData.map((station) => (
           <GridListTile key={station.img}>
