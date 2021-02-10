@@ -36,11 +36,11 @@ function Player() {
 
     console.log("play all");
     let res = Array.prototype.splice.call(arguments, 1, 1);
-    console.log(res[0]);
-    console.log(res[0].audio_file.track.title);
-    console.log(res[0].audio_file.artist.name);
-    console.log(res[0].station.name);
-    console.log(res[0].extra.background_image_url);
+    // console.log(res[0]);
+    // console.log(res[0].audio_file.track.title);
+    // console.log(res[0].audio_file.artist.name);
+    // console.log(res[0].station.name);
+    // console.log(res[0].extra.background_image_url);
 
     // if (res.length > 0) setStation(res[0].station.name);
     //     setAudio(res[0].audio_file.track.title);

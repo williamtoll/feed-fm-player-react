@@ -43,7 +43,6 @@ export default function StationsPhone() {
             <img src={station.img} alt={station.title} />
             <GridListTileBar
               title={station.title}
-              subtitle={<span>by: {station.author}</span>}
               actionIcon={
                 <IconButton aria-label={`info about ${station.title}`} className={classes.icon}>
                   <InfoIcon />
