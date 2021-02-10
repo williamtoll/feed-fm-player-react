@@ -40,6 +40,7 @@ function Player() {
 
 
     return (
+            
             <Box component="span" m={1}>
                 <div id="player-view-div">
                     <div className='status'></div>

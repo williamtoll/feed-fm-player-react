@@ -5,6 +5,15 @@ import Player from './Player';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import { BottomNavigation, BottomNavigationAction, Menu } from '@material-ui/core';
+import FolderIcon from '@material-ui/icons/Folder';
+import RestoreIcon from '@material-ui/icons/Restore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import Header from './Header';
+import Stations from './Stations';
+import StationsPhone from './StationsPhone';
+import PlayerCard from './PlayerCard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,23 +30,37 @@ const useStyles = makeStyles((theme) => ({
 function App() {
 
   const classes = useStyles();
-
-
+  const [value, setValue] = React.useState('recents');
+  const handleChange = (event:any, newValue:any) => {
+    setValue(newValue);
+  };
 
   return (
     <div className="App">
-      {/* <Grid container className={classes.root} spacing={2}>
-      <Grid item sm={6} xs={12} lg={12}>
-        <Grid container justify="center" spacing={2}>
-            <Grid>
-              <Paper className={classes.paper} />
-            </Grid>
+      <Header />
+      <Grid container className={classes.root} spacing={2}>
+        <Grid sm={6} xs={12} lg={3}>
+
+        </Grid>
+        <Grid sm={6} xs={12} lg={6} className="webGlobal">
+          <Stations  />
+        </Grid>
+        <Grid sm={6} xs={12} lg={6} className="mobileGlobal">
+          <StationsPhone  />
+        </Grid>
+        <Grid sm={6} xs={12} lg={3}>
+
         </Grid>
       </Grid>
-    </Grid> */}
-      <h4>Feed FM Player</h4>
+      {/* <h4>Feed FM Player</h4> */}
       <Player />
-     
+      <PlayerCard />
+      <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+        <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
+        <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
+        <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
+        <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+      </BottomNavigation>
     </div>
   );
 }
