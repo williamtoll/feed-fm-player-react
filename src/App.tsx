@@ -7,9 +7,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { BottomNavigation, BottomNavigationAction, Menu } from '@material-ui/core';
 import FolderIcon from '@material-ui/icons/Folder';
-import RestoreIcon from '@material-ui/icons/Restore';
+import HomeIcon from '@material-ui/icons/Home';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import AddBoxIcon from '@material-ui/icons/AddBox';
 import Header from './Header';
 import Stations from './Stations';
 import StationsPhone from './StationsPhone';
@@ -55,10 +55,11 @@ function App() {
       <h4>Feed FM Player</h4>
       <Player />
       <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-        <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
+        <BottomNavigationAction label="Home" value="recents" icon={<HomeIcon />} />
         <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
-        <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+        <BottomNavigationAction label="Browse" value="folder" icon={<FolderIcon />} />
+        <BottomNavigationAction label="New" value="nearby" icon={<AddBoxIcon />} />
+
       </BottomNavigation>
     </div>
   );
